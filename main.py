@@ -35,10 +35,8 @@ def perform_action(driver, input_text):
             EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.btn-default.button-form-submit.center-block"))
         )
         button.click()
-        
-        time.sleep(2)
 
-        # 3. 指定の文字を入力
+                # 3. 指定の文字を入力
         input_field = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".form-control.text.required.user-form-text"))
         )
@@ -50,7 +48,7 @@ def perform_action(driver, input_text):
         )
         submit_button.click()
 
-        time.sleep(2)
+        time.sleep(0.1)
 
     except Exception as e:
         print(f"エラー発生: {e}")
@@ -69,4 +67,4 @@ for _ in range(max_attempts):
     else:
         print("入力するテキストが見つかりませんでした。")
     driver.quit()  # 処理後にブラウザを閉じる
-    time.sleep(2)  # 少し待ってから次の繰り返し
+    # 少し待ってから次の繰り返し
